@@ -24,13 +24,15 @@ function addTask(){
    } else{
     let newArray = [...ToDoList,newTask];
     setToDoList(newArray);
-   }
-    setNewTask(" ");
+   
+    setNewTask("");
+}
 }
 }
 
 function startEditing(index){
     setEditingIndex(index);  //this sets the editing index to task which is to be edited
+   setNewTask(ToDoList[index]); // so what this does it,it updates the unput field with current value
 
 }
 
