@@ -12,28 +12,52 @@ setNewTask(event.target.value);
 }
 
 function addTask(){
+   if(newTask.trim()!=""){
+    if(editingIndex!=-1){
+      const  updatedList = [...ToDoList]; //this copies the elements from toDolist array to new updatedList
+      updatedList[editingIndex] = newTask; 
+      setToDoList(updatedList);
+      setEditingIndex(-1);  //this resets the index which is supposed to be edited
+
+       
+    
+   } else{
     let newArray = [...ToDoList,newTask];
     setToDoList(newArray);
+   }
     setNewTask(" ");
+}
+}
+
+function startEditing(index){
+    setEditingIndex(index);  //this sets the editing index to task which is to be edited
+
+}
+
+function startDeleting(){
+
 }
 return(
     <div  style={{textAlign:"center"}}>
         <div className='AddTask'>
 
     <input type='text' value={newTask}  onChange={handleChange}/>
-    <button onClick={addTask} >Add Task</button>
+    <button onClick={addTask} ></button>
 
     </div>
     
     <div className='List'>
         <h2>TODO LIST : </h2>
-        <ol>
-            {ToDoList.map((task,key)=>{
-                return <li key = {key}>{task}</li>
+        <ul>
+            {ToDoList.map((task,index)=>{
+                return <li key = {index}>
+                    {task}
+               <button className='edit-btn' onClick={()=>startEditing(index)}>Edit</button>
+                <button className='delete-btn' onClick={()=>startDeleting} >Delete</button> </li>
             })}
-        </ol>
-    <button className='edit-btn'>Edit</button>
-    <button className='delete-btn'>Delete</button>
+        </ul>
+  
+    
      
     </div>
     </div>
