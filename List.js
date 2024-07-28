@@ -36,8 +36,9 @@ function startEditing(index){
 
 }
 
-function startDeleting(){
-
+function startDeleting(index){
+  const updatedList =  ToDoList.filter((task,i)=>i!==index);
+   setToList(updatedList);
 }
 return(
     <div  style={{textAlign:"center"}}>
@@ -55,7 +56,7 @@ return(
                 return <li key = {index}>
                     {task}
                <button className='edit-btn' onClick={()=>startEditing(index)}>Edit</button>
-                <button className='delete-btn' onClick={()=>startDeleting} >Delete</button> </li>
+                <button className='delete-btn' onClick={()=>startDeleting(index)}>Delete</button> </li>
             })}
         </ul>
   
