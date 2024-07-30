@@ -1,4 +1,4 @@
-# This is basically a note because i dont want to create a new file everytime or overflow same file
+# NOTES ON REACT TOPICS
 
 import './App.css';
 
