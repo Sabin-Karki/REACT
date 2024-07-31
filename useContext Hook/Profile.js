@@ -6,7 +6,8 @@ export function Profile(){
     return(
         
         <div>
-        
+ 
+        {""}       
            Profile,user is {username}
            <ChangeProfile/>
          </div> 
